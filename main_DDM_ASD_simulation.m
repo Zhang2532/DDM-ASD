@@ -104,9 +104,9 @@ while norm(f) > epsilonf
         u_i = -(F_plus - F_minus) / (2 * l); % This is H(phi, v_i)
 
         % 3b. Compute eigenvector update direction d_i
-        d_i = -u_i + (v(:, i)' * u_i) * v(:, i);
+        d_i = -u_i + (v_old(:, i)' * u_i) * v_old(:, i);
         if i > 1
-             d_i = d_i + 2 * v(:, 1:i-1) * (v(:, 1:i-1)' * u_i);
+             d_i = d_i + 2 * v_old(:, 1:i-1) * (v_old(:, 1:i-1)' * u_i);
         end
 
         % 3c. Update v_i
